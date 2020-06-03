@@ -36,3 +36,13 @@ module.exports.createProductService = async (productData, images) => {
     return error.message;
   }
 };
+
+module.exports.shippingProductService = async (shippingData) => {
+  try {
+    const results = await Query.shippingProduct(shippingData);
+    return { message: "shipping profile created successfully", shippingData: results };
+  } catch (error) {
+    console.log("ErrorIn: ShippingProductService :", error);
+    return error.message;
+  }
+};

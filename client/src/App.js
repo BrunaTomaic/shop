@@ -8,9 +8,10 @@ import CreateProduct from "./components/auth/CreateProduct";
 import Login from "./components/auth/Login";
 import Product from "./components/layout/Product";
 import Navbar from "./components/layout/Navbar";
-import Profile from "./components/layout/Profile";
+import Profile from "./components/auth/Profile";
 import Contact from './components/layout/Contact';
 import MapContainer from './components/layout/Map';
+import ShippingProduct from './components/auth/Shipping';
 
 // import "./App.css";
 
@@ -28,6 +29,7 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/createproduct" component={CreateProduct} />
+            <Route exact path="/shippingproduct/:id" component={ShippingProduct} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/map" component={MapContainer} />
           </Switch>

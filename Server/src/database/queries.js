@@ -1,5 +1,6 @@
 const User = require("./models/userModel");
 const Product = require("./models/productModels");
+const Shipping = require("./models/shippingModels");
 
 module.exports = {
   getUserByEmail: async (email) => await User.findOne({ email }),
@@ -19,5 +20,11 @@ module.exports = {
     const product = await new Product({ ...data });
     return await product.save();
   },
+
+  shippingProduct: async (data) => {
+    const shipping = await new Shipping({ ...data });
+      return await shipping.save();
+    },
+  
 
 };

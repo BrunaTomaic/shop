@@ -2,6 +2,7 @@ const {
   getAllProductsService,
   getOneProductService,
   createProductService,
+  shippingProductService,
 } = require("../../services/productService");
 
 module.exports.getAllProductsController = async (req, res) => {
@@ -33,5 +34,16 @@ module.exports.createProductController = async (req, res) => {
   } catch (error) {
     res.status(400).send({ error: error.message });
   }
+};
 
-}
+  module.exports.shippingProductController = async (req, res) => {
+    try {
+      if (req.err) throw new Error(req.err);
+      const shippingData = { ...req.body, owner_id: req.owner_id };
+     
+      const result = await shippingProductService(shippingData);
+      res.status(200).send(result);
+    } catch (error) {
+      res.status(400).send({ error: error.message });
+    }
+};

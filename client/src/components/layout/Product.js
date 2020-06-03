@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Axios from "axios";
 import '../style/card.css'
 
@@ -33,8 +33,9 @@ const Product = () => {
           <div className="card-body">
           <p className="card-text">{product.price} kn</p>
           <p className="card-text">{product.description}</p>
-          
+          <Link key={product._id} to={`/shippingproduct/${product._id}`}> 
           <button className="btn btn-primary">Buy</button>
+          </Link>
           </div>
           </div>
         </div>
